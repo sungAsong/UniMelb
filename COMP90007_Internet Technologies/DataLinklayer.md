@@ -1,4 +1,4 @@
-# motivation
+# Motivation
 - reliable
 - efficient
 
@@ -38,9 +38,10 @@ A frame(structure): Flag Header Payload-field Trailer Flag
 
 # Framing
 - Byte count: in frame's header, specify number of bytes (count may be wrong during transmitting, and then misunderstand the right start and end point)
-- Flag bytes with byte stuffing: Flag byte on the start and end of the frame 
-- Flag bits with bit stuffing
-- Physical layer coding violations
+- Flag bytes with byte stuffing: Flag byte on the start and end of the frame, one frame two flags, Two consecutive flag bytes indicate the end of one frame and the start of the next.
+- Flag bits with bit stuffing: flag may be same as some data, insert a special escape byte (ESC) just before each ‘‘accidental’’ flag byte in the data
+                                 removes the escape bytes before giving the data to the network layer. This technique is called byte stuffing.
+- Physical layer coding violations:
 
 
 # Error Control
